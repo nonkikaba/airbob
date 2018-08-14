@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 text-center">
+    <h2>パスワードの変更</h2>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="form-group">
+        <%= f.password_field :password, class: "form-control", placeholder: '新しいパスワード', autocomplete: "off" %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: '確認のためもう一度パスワードを入力してください', autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "パスワードを変更します", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <a class="navbar-brand" href="#">Airbonb</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul class="navbar-nav">
+      <% if (!user_signed_in?) %>
+        <li class="nav-link">
+          <%= link_to 'ログイン', new_user_session_path %>
+        </li>
+        <li class="nav-link">
+          <%= link_to '新規登録', new_user_registration_path %>
+        </li>
+      <% else %>
+        <li class="nav-link dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=current_user.fullname %></a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">宿設定</a>
+              <a class="dropdown-item" href="#">宿を提供する</a>
+              <a class="dropdown-item" href="#">予約情報</a>
+              <a class="dropdown-item" href="#">旅行</a>
+              <%= link_to 'プロフィール編集', edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
