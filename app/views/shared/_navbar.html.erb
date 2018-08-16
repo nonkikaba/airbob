@@ -14,7 +14,10 @@
         </li>
       <% else %>
         <li class="nav-link dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=current_user.fullname %></a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%=image_tag avatar_url(current_user), class: "rounded-circle avatar_small" %>&nbsp;
+              <%=current_user.fullname %>
+            </a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">宿設定</a>
               <a class="dropdown-item" href="#">宿を提供する</a>
