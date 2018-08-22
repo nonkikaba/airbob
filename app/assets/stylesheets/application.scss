@@ -1,6 +1,101 @@
 @import "bootstrap";
 @import "toastr";
 
+body{
+  color: #565a5c;
+  background-color: #f8f8f8;
+  font-family: 'Varela Round', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+a{
+  color: #00a699;
+}
+
+.container{
+  width: 80%;
+}
+
+.text-babu, .icon-babu{
+  color: #00a699;
+}
+
+.navbar-expand-md{
+  background-color: #fff !important;
+  margin-bottom: 50px;
+}
+
+.navbar-expand-md .navbar-brand{
+  color: #ff5a5f;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.btn-block{
+  display: block;
+  white-space: normal;
+  width: 100%;
+}
+
+.btn{
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 9px 27px;
+}
+
+.btn-small{
+  padding: 5px 15px;
+  margin-top: 15px;
+}
+
+.btn:hover, .btn:focus{
+  color: #fff;
+}
+
+.btn.btn-default{
+  width: 100%;
+  border-color: #c4c4c4;
+  background: #fff;
+  color: #484848;
+  border-radius: 2px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.btn.btn-normal{
+  border: 1px solid #ff5a5f;
+  background-color: #ff5a5f;
+}
+
+.btn.btn-normal:active{
+  outline: none;
+  border-color: #c00007;
+  background-color: #c00007;
+}
+
+.btn.btn-form{
+  border: 1px solid #00a699;
+  background-color: #00a699;
+}
+
+.btn.btn-form:active{
+  outline: none;
+  border-color: #066165;
+  background-color: #066165;
+}
+
+.btn.btn-facebook{
+  border: 1px solid #3B5998;
+  background-color: #3B5998;
+}
+
+.btn.btn-facebook:active{
+  outline: none;
+  border-color: #2d467b;
+  background-color: #2d467b;
+}
+
+
 .avatar_small{
   width: 28px;
 }
