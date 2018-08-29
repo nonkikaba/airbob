@@ -1,38 +1,54 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3 text-center">
-    <h2>プロフィール</h2>
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item">
+        <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "sidebar-link active" %>
+      </li>
+    </ul>
+    <%= link_to "マイプロフィール", user_path(current_user.id), class: "btn btn-default" %>
+  </div>
+  <div class="col-md-9 text-center">
+    <div class="card">
+      <div class="card-header">ユーザー情報</div>
+      <div class="card-body">
+        <div class="container">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "shared/deviseErrorMsg" %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "shared/deviseErrorMsg" %>
+            <div class="form-group">
+              <%= f.text_field :fullname, class: "form-control", placeholder: 'フルネーム', autofocus: true, autocomplete: "email" %>
+            </div>
 
-      <div class="form-group">
-        <%= f.text_field :fullname, class: "form-control", placeholder: 'フルネーム', autofocus: true, autocomplete: "email" %>
+            <div class="form-group">
+              <%= f.text_field :phone_number, class: "form-control", placeholder: '電話番号', autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_area :description, rows: 5, cols: 25, class: "form-control", placeholder: '自己紹介', autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.email_field :email, class: "form-control", placeholder: 'Emailアドレス', autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.password_field :password, class: "form-control", placeholder: '新しいパスワード', autocomplete: "off" %>
+            </div>
+        
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: '確認のためもう一度パスワードを入力してください', autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "保存",class: "btn btn-normal btn-block" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-
-      <div class="form-group">
-        <%= f.email_field :email, class: "form-control", placeholder: 'Emailアドレス', autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="form-group">
-        <%= f.password_field :password, class: "form-control", placeholder: '新しいパスワード', autocomplete: "off" %>
-      </div>
-  
-      <div class="form-group">
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder: '確認のためもう一度パスワードを入力してください', autocomplete: "off" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.password_field :current_password, class: "form-control", placeholder: '現在のパスワード', autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "保存",class: "btn btn-normal btn-block" %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
-
