@@ -36,5 +36,5 @@ gem 'devise', '~> 4.2'
 gem 'toastr-rails'
 gem 'dotenv-rails'
 gem 'omniauth-facebook'
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 5.2.0'
 
