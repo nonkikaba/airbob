@@ -19,6 +19,10 @@ a{
   color: #00a699;
 }
 
+.text-center{
+  text-align: center;
+}
+
 
 //navbar
 .navbar-expand-md{
@@ -240,4 +244,39 @@ a{
   color: #565a5c;
   font-weight: bold;
   text-decoration: none;
+}
+
+//Photo upload
+.btn-file{
+  position: relative;
+  //はみ出た部分を隠す
+  overflow: hidden;
+}
+
+.btn-file input[type=file]{
+  position: absolute;
+  top:0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  // font-size: 100px;
+  // text-align: right;
+  filter: opacity(0);
+  opacity: 0;
+  outline: none;
+  background: #fff;
+  cursor: inherit;
+  display: block;
+}
+
+.card-header.preview {
+  padding: 0;
+}
+
+.card-header.preview img{
+  width: 100%;
+}
+
+.edit_room{
+  margin: 5% auto;
 }
