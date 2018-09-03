@@ -37,3 +37,4 @@ gem 'toastr-rails'
 gem 'dotenv-rails'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 5.1.0'
+
