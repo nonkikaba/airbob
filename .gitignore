@@ -27,3 +27,5 @@
 
 #Ignore all images
 public/uploads/*
+public/system/*
+

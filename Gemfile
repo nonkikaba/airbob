@@ -37,4 +37,6 @@ gem 'toastr-rails'
 gem 'dotenv-rails'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 5.2.0'
+gem 'geocoder', '~> 1.4'
+gem 'pry-rails'
 
