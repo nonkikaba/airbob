@@ -153,6 +153,23 @@
       </script>
     </div>
     <hr>
+
+    <div class="row">
+      <h3>Near by</h3>
+      <% @room.nearbys(10).each do |room| %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header preview">
+              <%= image_tag room.cover_photo(:medium) %>
+            </div>
+            <div class="card-body">
+              <%= link_to room.listing_name, room %>
+              (<%= room.distance.round(2) %> kms away)
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="col-md-4"></div>
 </div>
