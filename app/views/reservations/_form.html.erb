@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <span><i class="fa fa-bolt" style="#ffb400"></i><%= @room.price %>円/泊</span>
+    <span><i class="fa fa-bolt" style="#ffb400"></i>¥ <%= @room.price %>/泊</span>
   </div>
   <div class="card-body">
     <%= form_for([@room, @room.reservations.new]) do |f| %>
@@ -15,6 +15,24 @@
         </div>
       </div>
      
+      <div id="preview">
+        <table class="reservation-table">
+          <tbody>
+            <tr>
+              <td>料金</td>
+              <td class="text-right"><%= @room.price %></td>
+            </tr>
+            <tr>
+              <td>日数</td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <td>合計</td>
+              <td class="text-right"><%= @room.price %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <br>
       <%= f.submit "予約する", class: "btn btn-normal btn-block" %>
     <% end %>
