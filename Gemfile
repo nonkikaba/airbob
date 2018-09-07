@@ -39,4 +39,5 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 5.2.0'
 gem 'geocoder', '~> 1.4'
 gem 'pry-rails'
-
+gem 'jquery-ui-rails'
+gem 'rubyzip', '~> 1.2.2'
