@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery3
+//= require bootstrap-sprockets
 //= require rails-ujs
-//= require jquery-ui/datepicker
-//= require jquery-ui/datepicker-ja
-//= require_tree .
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-ja
 //= require popper
 //= require toastr
-//= require bootstrap-sprockets
+//= require_tree .
