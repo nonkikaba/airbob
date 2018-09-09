@@ -14,7 +14,8 @@
           <%= f.text_field :end_date, readonly: true, placeholder: "日", class: "form-control datepicker", disabled: true %>
         </div>
       </div>
-     
+     <br>
+     <h4><span id="message"></span></h4>
       <div id="preview" style="display: none;">
         <table class="reservation-table">
           <tbody>
@@ -34,7 +35,7 @@
         </table>
       </div>
       <br>
-      <%= f.submit "予約する", class: "btn btn-normal btn-block" %>
+      <%= f.submit "予約する", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
     <% end %>
   </div>
 </div>
@@ -77,6 +78,30 @@
           beforeShowDay: checkDate,
           onSelect: function(selected){
             $('#reservation_start_date').datepicker("option", "maxDate", selected);
+
+            var start_date = $('#reservation_start_date').datepicker('getDate');
+            var end_date = $('#reservation_end_date').datepicker('getDate');
+
+            var input = {
+              'start_date': start_date,
+              'end_date': end_date
+            }
+
+            $.ajax({
+              url: '<%= preview_room_path(@room) %>',
+              data: input,
+              success: function(data){
+                if(data.conflict){
+                  $('#message').text('ご利用できません');
+                  $('#preview').hide();
+                  $('#btn_book').attr('disabled', true);
+                }else{
+                  $('#message').text('');
+                  $('#preview').show();
+                  $('#btn_book').attr('disabled', false);
+                }
+              }
+            });
           }
         });
       }
