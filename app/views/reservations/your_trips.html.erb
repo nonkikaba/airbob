@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-md-3">
-    <div class="sidebar-list">
+    <ul class="sidebar-list">
       <li class="sidebar-item">
         <%= link_to "Your Listings", rooms_path, class: "sidebar-link" %>
       </li>
       <li class="sidebar-item">
-        <%= link_to "Your Reservations", rooms_path, class: "sidebar-link" %>
+        <%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %>
       </li>
       <li class="sidebar-item">
         <%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %>
       </li>
-    </div>
+    </ul>
   </div>
   <div class="col-md-9">
     <div class="card">
@@ -22,17 +22,17 @@
           <div class="row">
             <div class="col-md-2">
             <%# %wは曜日を表す %>
-              <%= trip.start_date.strftime('%v') %>
+              <%= trip.start_date.strftime('%F') %>
             </div>
             <div class="col-md-2">
               <%= link_to room_path(trip.room) do %>
               <%= image_tag trip.room.cover_photo(:thumb) %>
               <% end %>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-5">
               <%= link_to trip.room.listing_name, room_path(trip.room) %>
               <span class="pull-right text-center">
-                <%= image_tag avatar_url(trip.room.user), class: "img-fluid avatar-medium" %>
+                <%= image_tag avatar_url(trip.room.user), class: "rounded-circle avatar-medium" %>
                 <br>
                 <%= link_to user_path(trip.room.user) do %>
                   <%= trip.room.user.fullname %>
