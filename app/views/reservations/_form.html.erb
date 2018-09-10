@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <span><i class="fa fa-bolt" style="#ffb400"></i>¥ <%= @room.price %>/泊</span>
+    <span><i class="fa fa-bolt" style="color: #ffb400"></i>¥ <%= @room.price %>/泊</span>
   </div>
   <div class="card-body">
     <%= form_for([@room, @room.reservations.new]) do |f| %>
@@ -15,7 +15,7 @@
         </div>
       </div>
      <br>
-     <h4><span id="message"></span></h4>
+     <h4 class="message-alert text-center" ><span id="message"></span></h4>
       <div id="preview" style="display: none;">
         <table class="reservation-table">
           <tbody>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
               <td>日数</td>
-              <td class="text-right">x<span id="reservation_days"></span></td>
+              <td class="text-right">x<span id="reservation_nights"></span></td>
             </tr>
             <tr>
               <td class="total">合計</td>
@@ -68,19 +68,10 @@
           onSelect: function(selected){
             $('#reservation_end_date').datepicker("option", "minDate", selected);
             $('#reservation_end_date').attr("disabled", false);
-          }
-        });
-
-        $('#reservation_end_date').datepicker({
-          dateFormat: 'dd-mm-yy',
-          minDate: 0,
-          maxDate: '3m',
-          beforeShowDay: checkDate,
-          onSelect: function(selected){
-            $('#reservation_start_date').datepicker("option", "maxDate", selected);
 
             var start_date = $('#reservation_start_date').datepicker('getDate');
             var end_date = $('#reservation_end_date').datepicker('getDate');
+            var nights = (end_date - start_date)/1000/60/60/24 + 1;
 
             var input = {
               'start_date': start_date,
@@ -99,6 +90,50 @@
                   $('#message').text('');
                   $('#preview').show();
                   $('#btn_book').attr('disabled', false);
+
+                  var total = nights * <%= @room.price %>
+                  $('#reservation_nights').text(nights);
+                  $('#reservation_total').text(total);
+                }
+              }
+            });
+            
+          }
+        });
+
+        $('#reservation_end_date').datepicker({
+          dateFormat: 'dd-mm-yy',
+          minDate: 0,
+          maxDate: '3m',
+          beforeShowDay: checkDate,
+          onSelect: function(selected){
+            $('#reservation_start_date').datepicker("option", "maxDate", selected);
+
+            var start_date = $('#reservation_start_date').datepicker('getDate');
+            var end_date = $('#reservation_end_date').datepicker('getDate');
+            var nights = (end_date - start_date)/1000/60/60/24 + 1;
+
+            var input = {
+              'start_date': start_date,
+              'end_date': end_date
+            }
+
+            $.ajax({
+              url: '<%= preview_room_path(@room) %>',
+              data: input,
+              success: function(data){
+                if(data.conflict){
+                  $('#message').text('ご利用できません');
+                  $('#preview').hide();
+                  $('#btn_book').attr('disabled', true);
+                }else{
+                  $('#message').text('');
+                  $('#preview').show();
+                  $('#btn_book').attr('disabled', false);
+
+                  var total = nights * <%= @room.price %>
+                  $('#reservation_nights').text(nights);
+                  $('#reservation_total').text(total);
                 }
               }
             });
