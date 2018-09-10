@@ -1,10 +1,12 @@
 <div class="row">
   <div class="col-md-3">
     <div class="sidebar-list">
-      <div class="sidebar-item">
+      <li class="sidebar-item">
         <%= link_to "Your Listings", rooms_path, class: "sidebar-link active" %>
-        <%= link_to "Your Reservations", rooms_path, class: "sidebar-link active" %>
-      </div>
+      </li>
+      <li class="sidebar-item">
+        <%= link_to "Your Reservations", rooms_path, class: "sidebar-link" %>
+      </li>
     </div>
   </div>
   <div class="col-md-9">
