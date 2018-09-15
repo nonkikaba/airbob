@@ -19,14 +19,16 @@ def create
 
     if @has_reviewed.nil?
         #allow to review
+        @host_review = current_user.host_reviews.create(host_review_params)
+        flash[:success] = "レビューを作成しました"
     else
       # already reviewed
+        flash[:success] = "すでにレビューがありました"
     end
   else
     flash[:alert] = "予約情報が見つかりません"
   end
 
-  @host_review = current_user.host_reviews.create(host_review_params)
   redirect_back(fallback_location: request.referer)
 end
 
