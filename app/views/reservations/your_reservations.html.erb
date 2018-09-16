@@ -31,11 +31,10 @@
               </div>
               <div class="col-md-5">
                 <%= link_to reservation.room.listing_name, room_path(reservation.room) %>
-                <br>
+                <br><br>
                 <span>
                   <%= link_to user_path(reservation.user) do %>
                     <%= image_tag avatar_url(reservation.user), class: "rounded-circle avatar-small" %>
-                    <br>
                     <%= reservation.user.fullname %>
                   <% end %>
                 </span>
