@@ -9,7 +9,7 @@ def create
                     id: host_review_params[:reservation_id],
                     room_id: host_review_params[:room_id],
                     user_id: host_review_params[:guest_id]  
-                    )
+                    ).first
 
   if !@reservation.nil?
     @has_reviewed = HostReview.where(
