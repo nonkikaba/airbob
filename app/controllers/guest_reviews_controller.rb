@@ -8,9 +8,10 @@ class GuestReviewsController < ApplicationController
     @reservation = Reservation.where(
                       id: guest_review_params[:reservation_id],
                       room_id: guest_review_params[:room_id]
-                      )
+                      ).first
 
     if !@reservation.nil? && @reservation.room.user.id == guest_review_params[:host_id].to_i
+
       @has_reviewed = GuestReview.where(
                         reservation_id: @reservation.id,
                         host_id: guest_review_params[:host_id]
