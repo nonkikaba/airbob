@@ -14,7 +14,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_for current_user.guest_review.new do |f| %>
+        <%= form_for current_user.guest_reviews.new do |f| %>
           <div class="form-group text-center">
             <%= f.text_field :star %>
           </div>
