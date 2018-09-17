@@ -125,6 +125,21 @@
     <hr>
 
     <div class="row">
+      <div class="col-md-12">
+        <h3>
+          <%= @guest_reviews.count %>
+          <span id="average_rating"></span>
+        </h3>
+        <div class="container">
+          <div><%= render 'reviews/guest_list' %></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    
+
+    <div class="row">
       <div id="map" style="width: 100%; height: 400px"></div>
 
       <% google_api_key = ENV['GOOGLE_MAPS_API_KEY'] %>
@@ -175,3 +190,11 @@
     <%= render 'reservations/form' %>
   </div>
 </div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+</script>
