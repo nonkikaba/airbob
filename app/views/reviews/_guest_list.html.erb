@@ -1,9 +1,10 @@
-<%= if @guest_reviews.count == 0 %>
+<% if @guest_reviews.count == 0 %>
   <div class="text-center">
     レビューがありません
   </div>
 <% else %>
   <% @guest_reviews.order(id: :desc).each do |r| %>
+  <hr>
     <div class="row">
       <div class="col-md-3 text-center">
         <%= image_tag avatar_url(r.guest), class: "rounded-circle avatar-medium" %>
@@ -19,9 +20,10 @@
             <% end %>
           </span>
         <% end %>
+        <br>
+        <div><%= r.created_at.strftime('%F') %></div>
+        <div><%= r.comment %></div>
       </div>
-      <div><%= r.created_at.strftime('%F') %></div>
-      <div><%= f.comment %></div>
     </div>
   <% end %>
 <% end %>

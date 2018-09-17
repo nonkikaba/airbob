@@ -1,4 +1,4 @@
-<%= if @host_reviews.count == 0 %>
+<% if @host_reviews.count == 0 %>
   <div class="text-center">
     レビューがありません
   </div>
@@ -21,7 +21,7 @@
         <% end %>
       </div>
       <div><%= r.created_at.strftime('%F') %></div>
-      <div><%= f.comment %></div>
+      <div><%= r.comment %></div>
     </div>
   <% end %>
 <% end %>
