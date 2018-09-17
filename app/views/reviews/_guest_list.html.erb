@@ -1,0 +1,9 @@
+<%= if @guest_reviews.count == 0 %>
+  <div class="text-center">
+    レビューがありません
+  </div>
+<% else %>
+  <% @guest_reviews.order(id: :desc).each do |r| %>
+
+  <% end %>
+<% end %>
