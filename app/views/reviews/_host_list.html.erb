@@ -24,5 +24,13 @@
         <div><%= r.comment %></div>
       </div>
     </div>
+    <script>
+      $('#star_<%= r.id %>').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= r.star %>
+      });
+    </script>
   <% end %>
 <% end %>
+
