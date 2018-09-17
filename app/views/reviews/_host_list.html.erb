@@ -1,18 +1,18 @@
-<%= if @guest_reviews.count == 0 %>
+<%= if @host_reviews.count == 0 %>
   <div class="text-center">
     レビューがありません
   </div>
 <% else %>
-  <% @guest_reviews.order(id: :desc).each do |r| %>
+  <% @host_reviews.order(id: :desc).each do |r| %>
     <div class="row">
       <div class="col-md-3 text-center">
-        <%= image_tag avatar_url(r.guest), class: "rounded-circle avatar-medium" %>
+        <%= image_tag avatar_url(r.host), class: "rounded-circle avatar-medium" %>
         <br><br>
-        <strong><%= r.guest.fullname %></strong>
+        <strong><%= r.host.fullname %></strong>
       </div>
       <div class="col-md-9">
         <div><%= r.star %></div>
-        <% if current_user && current_user == r.guest %>
+        <% if current_user && current_user == r.host %>
           <span class="pull-right">
             <%= link_to r, method: :delete, data: { confirm: "削除してもよいですか" } do %>
               <i class="fa fa-trash-o fa-lg"></i>
