@@ -19,9 +19,10 @@
             <% end %>
           </span>
         <% end %>
+        <br>
+        <div><%= r.created_at.strftime('%F') %></div>
+        <div><%= r.comment %></div>
       </div>
-      <div><%= r.created_at.strftime('%F') %></div>
-      <div><%= r.comment %></div>
     </div>
   <% end %>
 <% end %>
