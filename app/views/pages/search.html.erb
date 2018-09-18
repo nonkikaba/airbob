@@ -2,7 +2,7 @@
   <div id="left">
     <div class="row">
       <br>
-      <div class="collapse" id="collapsePanel">
+      <div id="collapsePanel">
         <%= search_form_for @search, url: search_path do |f| %>
           <div class="row">
             <div class="col-md-8">
@@ -80,6 +80,22 @@
 
           <div class="row text-center">
             <%= f.submit "Submit", class: "btn btn-form" %>
+          </div>
+        <% end %>
+      </div>
+      <br>
+
+      <div class="row">
+        <% @arrRooms.each do |room| %>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header preview">
+                <%= image_tag room.cover_photo(:medium) %>
+              </div>
+              <div class="card-body">
+                <%= link_to room.listing_name, room %>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
