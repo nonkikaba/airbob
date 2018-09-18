@@ -58,9 +58,53 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <%= check_box_tag "q[is_tv_eq]", true %>TV
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[is_kitchen_eq]", true %> Kitchen
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[is_Internet_eq]", true %> Internet
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[is_heating_eq]", true %> Heating
+            </div>
+            <div class="col-md-4">
+              <%= check_box_tag "q[is_air_eq]", true %> Air Conditioning
+            </div>
+          </div>
+          <hr>
+
+          <div class="row text-center">
+            <%= f.submit "Submit", class: "btn btn-form" %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
   <div id="right"></div>
 </div>
+
+<script>
+  $('#start_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected){
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr("disabled", false);
+    }
+  });
+
+  $('#end_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected){
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+</script>
