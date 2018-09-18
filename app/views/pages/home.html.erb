@@ -13,9 +13,16 @@
   <br><br>
 
   <div class="row">
-    
+    <div class="col-md-4 offset-md-4">
+      <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
+    </div>
   </div>
 <% end %>
+
+<br><hr><br>
+
+<div><h3>Homes</h3></div>
+<br>
 
 <div class="row">
   <% @rooms.each do |room| %>
