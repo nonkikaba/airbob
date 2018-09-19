@@ -95,21 +95,10 @@
           <% end %>
         </div>
         <br>
-
-        <div class="row">
-          <% @arrRooms.each do |room| %>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-header preview">
-                  <%= image_tag room.cover_photo(:medium) %>
-                </div>
-                <div class="card-body">
-                  <%= link_to room.listing_name, room %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+      <div class="row">
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @arrRooms} %>
+      </div>
+        
       </div>
     </div>
   <div id="right">
