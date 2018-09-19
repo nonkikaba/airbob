@@ -4,6 +4,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
+      </div>
+    <% end %>
+
     <ul class="navbar-nav">
     <li>
       <button class="btn btn-form btn-small nav-link">
