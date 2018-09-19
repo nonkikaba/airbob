@@ -9,15 +9,15 @@ class PagesController < ApplicationController
     end
 
     if session[:loc_search] && session[:loc_search] != ""
-      @room_address = Room.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @rooms_address = Room.where(active: true).near(session[:loc_search], 5, order: 'distance')
     else
-      @room_address = Room.where(active: true).all
+      @rooms_address = Room.where(active: true).all
     end
 
     @search = @rooms_address.ransack(params[:q])
     @rooms = @search.result
 
-    @arrRooms = @room.to_a
+    @arrRooms = @rooms.to_a
 
     if (params[:start_date] && params[:end_date] && !params[:start_date].empty? &&  !params[:end_date].empty?)
       start_date = Date.parse(params[:start_date])
