@@ -3,19 +3,14 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-    <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+  <div class="collapse navbar-collapse justify-content-end mr-auto" id="navbarCollapse">
+    <%= form_tag search_path, class: "navbar-form navbar-left mr-auto", method: :get do %>
       <div class="form-group">
         <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
       </div>
     <% end %>
 
     <ul class="navbar-nav">
-    <li>
-      <button class="btn btn-form btn-small nav-link">
-        <%= link_to "ホストになる", new_room_path, style: "color: white; text-decoration: none;" %>
-      </button>
-    </li>
       <% if (!user_signed_in?) %>
         <li class="nav-link">
           <%= link_to 'ログイン', new_user_session_path %>
@@ -39,6 +34,11 @@
             </div>
           </li>
       <% end %>
+      <li>
+      <button class="btn btn-form btn-small nav-link">
+        <%= link_to "ホストになる", new_room_path, style: "color: white; text-decoration: none;" %>
+      </button>
+    </li>
     </ul>
   </div>
 </nav>
