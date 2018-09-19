@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-ja
+//= require jquery-ui/widgets/slider
 //= require popper
 //= require toastr
 //= require_tree .
