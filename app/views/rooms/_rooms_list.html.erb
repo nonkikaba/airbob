@@ -8,7 +8,9 @@
           <%= link_to room.listing_name, room %>
           <br>
           ¥<%= room.price %> - <%= room.home_type %> - <%= room.bed_room %>
+          <div id="star_<%= room.id %>"></div><%= room.average_rating %>
         </div>
       </div>
     </div>
   <% end %>
+
