@@ -103,11 +103,10 @@
       </div>
     </div>
   <div id="right">
-    <div id="map" style="width: 100%; height: 100%;"></div>
+    <div id="map" style="width: 100%; height: 100%; top: 86px;"></div>
 
-    <% google_api_key = ENV['GOOGLE_MAPS_API_KEY'] %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc-z2wwnNm0ovKnxDjCCSxfFmyb6YHQFQ&libraries=places"></script>
-    <%# <script src="https://maps.googleapis.com/maps/api/js?key=" + google_api_key></script> %>
+    <% google_api_key = ENV['GOOGLE_MAPS_API_KEY'] %>    
+    <script src="https://maps.googleapis.com/maps/api/js?key=" + google_api_key></script>
     <script>
       function initialize(rooms){
         var location = { lat: 35.709026, lng: 139.731993 }
