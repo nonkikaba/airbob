@@ -24,6 +24,10 @@ a{
   text-align: center;
 }
 
+.text-red, .icon-red{
+  color: #ff5a5f;
+}
+
 
 //navbar
 .navbar-expand-md{
@@ -334,7 +338,7 @@ a{
 
 #right{
   position: fixed;
-  top: 0;
+  top: 86px;
   right: 0;
   width: 450px;
   height: 100%;
@@ -347,8 +351,14 @@ a{
   color: #00a699;
 }
 
-#map{
-  width: 100%;
-  height: 100%;
-  top: 86px;
+//home_page
+.discovery-card{
+  background-size: cover;
+  background-position: center;
+  height: 326px;
+}
+
+.banner{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
