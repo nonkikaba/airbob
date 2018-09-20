@@ -31,19 +31,7 @@
 <br>
 
 <div class="row">
-<%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-  <% @rooms.each do |room| %>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header preview">
-          <%= image_tag room.cover_photo(:medium) %>
-        </div>
-        <div class="card-body">
-          <%= link_to room.listing_name, room %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
 </div>
 
 <div><h3>Cities</h3></div>
@@ -60,13 +48,6 @@
   <div class="col-md-3 col-sm-12">
     <a href="http://localhost:3000/search?utf8=✓&search=los+angeles">
       <div class="discovery-card" style="background-image: url('/assets/LA.jpg')">
-
-      </div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=✓&search=london">
-      <div class="discovery-card" style="background-image: url('/assets/LD.jpg')">
 
       </div>
     </a>
