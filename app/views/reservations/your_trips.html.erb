@@ -21,12 +21,12 @@
         <% @trips.each do |trip| %>
           <div class="row">
             <div class="col-md-2">
-            <%# %wは曜日を表す %>
+            <!-- %wは曜日を表す -->
               <%= trip.start_date.strftime('%F') %>
             </div>
             <div class="col-md-2">
               <%= link_to room_path(trip.room) do %>
-              <%= image_tag trip.room.cover_photo(:thumb) %>
+                <%= image_tag trip.room.cover_photo(:thumb) %>
               <% end %>
             </div>
             <div class="col-md-5">
