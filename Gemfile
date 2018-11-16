@@ -42,3 +42,6 @@ gem 'pry-rails'
 gem 'jquery-ui-rails'
 gem 'rubyzip', '~> 1.2.2'
 gem 'ransack'
+
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
